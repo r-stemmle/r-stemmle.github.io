@@ -1,0 +1,19 @@
+title: Ryan Stemmle
+description: >-
+  Personal site - my story, experience, and journey.
+
+# Theme
+theme: minima
+
+# Build settings
+markdown: kramdown
+
+# Social links (uncomment and fill in as needed)
+# minima:
+#   social_links:
+#     - { platform: github, user_url: "https://github.com/r-stemmle" }
+#     - { platform: linkedin, user_url: "https://linkedin.com/in/yourprofile" }
+
+# Site navigation - pages with these titles will appear in the header
+header_pages:
+  - about.md
