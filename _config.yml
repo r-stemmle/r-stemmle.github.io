@@ -17,3 +17,4 @@ markdown: kramdown
 # Site navigation - pages with these titles will appear in the header
 header_pages:
   - about.md
+  - resume.md
