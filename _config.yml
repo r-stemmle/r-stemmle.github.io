@@ -18,3 +18,4 @@ markdown: kramdown
 header_pages:
   - about.md
   - resume.md
+  - references.md
