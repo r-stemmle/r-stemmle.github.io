@@ -1,0 +1,134 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+    <div class="post-grid">
+      {%- for post in site.posts -%}
+        <div class="post-card">
+
+          {%- if post.thumbnail -%}
+            <a href="{{ post.url | relative_url }}" class="post-thumb-link">
+              <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" class="post-thumb">
+            </a>
+          {%- endif -%}
+
+          <div class="post-card-body">
+            <h2 class="post-card-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h2>
+            <p class="post-card-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+            <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+            <a href="{{ post.url | relative_url }}" class="post-read-more">Read more &rarr;</a>
+          </div>
+
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    <p class="no-posts">No posts yet — check back soon.</p>
+  {%- endif -%}
+
+</div>
+
+<style>
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .post-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease;
+    background: #fff;
+  }
+
+  .post-card:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  }
+
+  .post-thumb-link {
+    display: block;
+    overflow: hidden;
+  }
+
+  .post-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .post-thumb-link:hover .post-thumb {
+    transform: scale(1.03);
+  }
+
+  .post-card-body {
+    padding: 1.1rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .post-card-title {
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .post-card-title a {
+    color: #222;
+    text-decoration: none;
+  }
+
+  .post-card-title a:hover {
+    color: #005b96;
+  }
+
+  .post-card-date {
+    font-size: 0.78rem;
+    color: #999;
+    margin: 0 0 0.75rem;
+  }
+
+  .post-card-excerpt {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.65;
+    margin: 0 0 1rem;
+    flex: 1;
+  }
+
+  .post-read-more {
+    font-size: 0.85rem;
+    color: #005b96;
+    text-decoration: none;
+    font-weight: 600;
+    align-self: flex-start;
+  }
+
+  .post-read-more:hover {
+    text-decoration: underline;
+  }
+
+  .no-posts {
+    color: #888;
+    font-style: italic;
+    margin-top: 1rem;
+  }
+</style>
